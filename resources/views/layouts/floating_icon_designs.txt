@@ -1,0 +1,191 @@
+============================================Design 1 =================================
+    
+    <!-- FLOATING SOCIAL MEDIA BUTTON -->
+    <div class="fixed bottom-6 right-6 z-50 group">
+        <!-- Popup Menu -->
+        <div id="social-menu" class="absolute bottom-16 right-0 w-48 bg-dark-800 border border-gold-500/30 rounded-lg shadow-2xl transform scale-90 opacity-0 invisible transition-all duration-200 origin-bottom-right">
+            <div class="p-4 space-y-3">
+                <h4 class="text-xs text-gray-500 uppercase tracking-widest mb-2 border-b border-white/10 pb-2">Connect</h4>
+                <a href="#" class="flex items-center gap-3 text-gray-300 hover:text-gold-500 transition-colors">
+                    <div class="w-8 h-8 rounded-full bg-dark-900 flex items-center justify-center border border-white/10"><i class="fab fa-instagram"></i></div>
+                    <span class="text-sm">Instagram</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 text-gray-300 hover:text-gold-500 transition-colors">
+                    <div class="w-8 h-8 rounded-full bg-dark-900 flex items-center justify-center border border-white/10"><i class="fab fa-facebook-f"></i></div>
+                    <span class="text-sm">Facebook</span>
+                </a>
+                <a href="#" class="flex items-center gap-3 text-gray-300 hover:text-gold-500 transition-colors">
+                    <div class="w-8 h-8 rounded-full bg-dark-900 flex items-center justify-center border border-white/10"><i class="fab fa-twitter"></i></div>
+                    <span class="text-sm">Twitter</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- FAB Button -->
+        <button onclick="toggleSocialMenu()" class="w-14 h-14 bg-gold-500 hover:bg-gold-600 rounded-full shadow-lg shadow-gold-500/30 flex items-center justify-center text-dark-900 text-xl transition-transform hover:scale-110">
+            <i class="fas fa-share-alt"></i>
+        </button>
+    </div>
+
+    <!-- JS LOGIC -->
+    <script>
+        // Social Menu Toggle
+        function toggleSocialMenu() {
+            const menu = document.getElementById('social-menu');
+            if (menu.classList.contains('invisible')) {
+                menu.classList.remove('invisible', 'opacity-0', 'scale-90');
+                menu.classList.add('opacity-100', 'scale-100');
+            } else {
+                menu.classList.add('invisible', 'opacity-0', 'scale-90');
+                menu.classList.remove('opacity-100', 'scale-100');
+            }
+        }
+        
+        // CSS Animation helper
+        const style = document.createElement('style');
+        style.innerHTML = `@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } } .animate-fade-in-up { animation: fadeInUp 0.3s ease-out forwards; }`;
+        document.head.appendChild(style);
+
+    </script>
+
+============================================Design 1 end =============================
+
+
+
+
+
+
+
+
+======================================design 2========================================
+<!-- ========================================== -->
+    <!--      FLOATING SOCIAL MEDIA BUTTON          -->
+    <!-- ========================================== -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
+        
+        <!-- Social Buttons Container -->
+        <div id="social-buttons" class="flex flex-col gap-3 transition-all duration-300 transform translate-y-10 opacity-0 invisible origin-bottom">
+            
+            <!-- Messenger (Blue) -->
+            <a href="#" class="w-12 h-12 rounded-full bg-[#0084FF] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                <i class="fab fa-facebook-messenger text-2xl"></i>
+            </a>
+            
+            <!-- WhatsApp (Green) -->
+            <a href="#" class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                <i class="fab fa-whatsapp text-2xl"></i>
+            </a>
+            
+            <!-- Viber (Purple) -->
+            <a href="#" class="w-12 h-12 rounded-full bg-[#665CAC] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                <i class="fab fa-viber text-2xl"></i>
+            </a>
+        </div>
+
+        <!-- Main Toggle Button (Light Purple/Lavender) -->
+        <button onclick="toggleFab()" id="fab-toggle" class="w-14 h-14 bg-gold-500 hover:bg-gold-600 shadow-lg shadow-gold-500/30 justify-center text-dark-900 text-xl transition-transform hover:scale-110  w-14 h-14 rounded-full flex items-center shadow-xl transition-colors focus:outline-none relative group">
+            <!-- Icons handled by JS -->
+            <i class="fas fa-comment-dots text-2xl transition-all duration-300 transform" id="fab-icon-open"></i>
+            <i class="fas fa-times text-2xl transition-all duration-300 transform opacity-0 absolute rotate-90" id="fab-icon-close"></i>
+        </button>
+    </div>
+
+    <!-- JS LOGIC -->
+    <script>
+        // --- NEW FAB TOGGLE LOGIC ---
+        function toggleFab() {
+            const buttons = document.getElementById('social-buttons');
+            const iconOpen = document.getElementById('fab-icon-open');
+            const iconClose = document.getElementById('fab-icon-close');
+
+            if (buttons.classList.contains('invisible')) {
+                // Open State
+                buttons.classList.remove('invisible', 'opacity-0', 'translate-y-10');
+                
+                // Icon Animation: Hide Chat, Show X
+                iconOpen.classList.add('opacity-0', 'rotate-90');
+                iconClose.classList.remove('opacity-0', 'rotate-90'); // Reset rotate to 0 effectively
+                iconClose.classList.add('rotate-0');
+            } else {
+                // Close State
+                buttons.classList.add('invisible', 'opacity-0', 'translate-y-10');
+                
+                // Icon Animation: Show Chat, Hide X
+                iconOpen.classList.remove('opacity-0', 'rotate-90');
+                iconClose.classList.remove('rotate-0');
+                iconClose.classList.add('opacity-0', 'rotate-90');
+            }
+        }
+        
+        // Helper CSS
+        const style = document.createElement('style');
+        style.innerHTML = `@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } } .animate-fade-in-up { animation: fadeInUp 0.3s ease-out forwards; }`;
+        document.head.appendChild(style);
+
+    </script>
+
+
+
+======================================design 2 end ===================================
+
+
+
+
+<!-- Messenger Chat Plugin Code -->
+<div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat"></div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "102832891734622");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+<!-- Load Facebook SDK -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v18.0'
+    });
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div id="fb-root"></div>
+
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "102832891734622");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+
+<script>
+    window.fbAsyncInit = function() {
+    FB.init({
+        xfbml            : true,
+        version          : 'v21.0'
+    });
+    };
+  (function(d, s, id){
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/messenger.Extensions.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'Messenger'));
+</script>
