@@ -120,11 +120,11 @@ In `resources/views/layouts/admin.blade.php`:
 **SMTP Configuration in `.env`:**
 ```env
 MAIL_MAILER=smtp
-MAIL_HOST=smtp.eskycode.com
+MAIL_HOST=smtp.example.com
 MAIL_PORT=465
-MAIL_USERNAME=info@htcnepal.com
-MAIL_PASSWORD=Ashok@1122
-MAIL_FROM_ADDRESS="info@htcnepal.com"
+MAIL_USERNAME=info@example.com
+MAIL_PASSWORD=your-app-secret
+MAIL_FROM_ADDRESS="info@example.com"
 MAIL_FROM_NAME="${APP_NAME}"
 ```
 
